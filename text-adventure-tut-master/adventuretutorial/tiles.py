@@ -47,8 +47,9 @@ class MapTile:
 class StartingRoom(MapTile):
     def intro_text(self):
         return """
-        You find yourself in a cave with a flickering torch on the wall.
-        You can make out four paths, each equally as dark and foreboding.
+        You are standing in a small but brightly lit room.
+        There is a computer interface port on the wall nearest you.
+        You may exit through the door to the south.
         """
 
     def modify_player(self, the_player):
@@ -56,11 +57,34 @@ class StartingRoom(MapTile):
         pass
 
 
-class EmptyCavePath(MapTile):
+class Hallway(MapTile):
     def intro_text(self):
         return """
-        Another unremarkable part of the cave. You must forge onwards.
+        You are now in a hallway.
+        Different colored lights flash occasionally on the walls.
         """
+
+    def modify_player(self, the_player):
+        #Room has no action on player
+        pass
+
+
+    def modify_player(self, the_player):
+        #Room has no action on player
+        pass
+
+class Hallway_Door(MapTile):
+    def intro_text(self):
+        return """
+        You are now in a hallway.
+        Different colored lights flash occasionally on the walls.
+        There is a small door in the wall
+        """
+
+    def modify_player(self, the_player):
+        #Room has no action on player
+        pass
+
 
     def modify_player(self, the_player):
         #Room has no action on player
@@ -80,14 +104,23 @@ class LootRoom(MapTile):
         self.add_loot(the_player)
 
 
-class FindDaggerRoom(LootRoom):
+class FindKeyRoom(LootRoom):
     def __init__(self, x, y):
-        super().__init__(x, y, items.Dagger())
+        super().__init__(x, y, items.Key())
 
     def intro_text(self):
         return """
+        You are now in a small storage closet.
         You notice something shiny in the corner.
-        It's a dagger! You pick it up.
+        It's a keycard. You pick it up.
+        """
+
+class NeedKeyRoom(MapTile):
+
+    def intro_text(self):
+        return """
+        You enter what looks like a security room.
+        There is a keycard slot on the wall.
         """
 
 

@@ -44,3 +44,8 @@ class Gold(Item):
         super().__init__(name="Gold",
                          description="A round coin with {} stamped on the front.".format(str(self.amt)),
                          value=self.amt)
+
+class Key(Item):
+    def __init__(self):
+        super().__init__(name="A keycard",
+                         description="A small rectangular keycard. It looks like it unlocks something")       

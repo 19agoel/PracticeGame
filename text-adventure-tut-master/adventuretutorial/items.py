@@ -48,4 +48,5 @@ class Gold(Item):
 class Key(Item):
     def __init__(self):
         super().__init__(name="A keycard",
-                         description="A small rectangular keycard. It looks like it unlocks something")       
+                         description="A small rectangular keycard. It looks like it unlocks something",
+                         value=10)       

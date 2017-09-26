@@ -69,11 +69,9 @@ class Hallway(MapTile):
         pass
 
 
-    def modify_player(self, the_player):
-        #Room has no action on player
-        pass
 
-class Hallway_Door(MapTile):
+
+class HallwayDoor(MapTile):
     def intro_text(self):
         return """
         You are now in a hallway.
@@ -122,7 +120,11 @@ class NeedKeyRoom(MapTile):
         You enter what looks like a security room.
         There is a keycard slot on the wall.
         """
-
+    def modify_player(self, the_player):
+        for item in the_player.inventory:
+            if item.name == "A keycard":
+                print("\nYou insert the keycard into the slot. A door slides open, and an escape pod reveals itself.\nYou climb in the escape pod, and fly away.\nYOU WIN!")
+                the_player.victory = True
 
 class Find5GoldRoom(LootRoom):
     def __init__(self, x, y):
@@ -193,11 +195,10 @@ class SnakePitRoom(MapTile):
         player.hp = 0
 
 
-class LeaveCaveRoom(MapTile):
+class EscapePodRoom(MapTile):
     def intro_text(self):
         return """
-        You see a bright light in the distance...
-        ... it grows as you get closer! It's sunlight!
+        You climb into the escape pod and it launches off.
 
 
         Victory is yours!

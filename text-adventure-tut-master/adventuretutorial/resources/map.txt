@@ -1,1 +1,1 @@
-StartingRoom				Hallway_Door	Hallway	Hallway	Hallway_Door	Hallway Door			FindKeyRoom	NeedKeyRoom				EscapePodRoom
+StartingRoom				HallwayDoor	Hallway	Hallway	HallwayDoor	HallwayDoor			FindKeyRoom	NeedKeyRoom				EscapePodRoom
